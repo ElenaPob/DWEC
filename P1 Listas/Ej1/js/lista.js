@@ -42,7 +42,7 @@ function add(list, elem) {
 function addAt(list, elem, index) {
     if(!(elem.hasOwnProperty("ISBN")) || !(elem.hasOwnProperty("title"))) throw "El elemento no es un Book";
     if(isFull(list)) throw "La lista está llena";
-    if(index > capacity()) throw "El índice está fuera de los límites";
+    if((index>capacity()) || (index< 0)) throw "El indice esta fuera de los limites de la lista";
 
     list.splice(index, 0 , elem);
 
@@ -51,7 +51,7 @@ function addAt(list, elem, index) {
 
 // Devuelve el elemento de la lista de la posición que se pida
 function get(list, index) {
-    if(index > capacity()) throw "El índice está fuera de los límites";
+    if((index>capacity()) || (index< 0)) throw "El indice esta fuera de los limites de la lista";
     if(!regex.test(elem.ISBN)) throw "El ISBN del elemento no corresponde con las reglas";
     
     return list[index];
@@ -106,7 +106,7 @@ function lastElement(list) {
 
 // Elimina el elemento de la posición indicada y lo devuelve
 function remove(list, index) {
-    if(index > capacity()) throw "El índice está fuera de los límites";
+    if((index>capacity()) || (index< 0)) throw "El indice esta fuera de los limites de la lista";
 
     let elim = list[index];
 
@@ -130,7 +130,7 @@ function removeElement(list, elem) {
 // Reemplaza el elemento de la lista indicada por otro y devuelve el anterior
 function set(list, elem, index) {
     if(!(elem.hasOwnProperty("ISBN")) || !(elem.hasOwnProperty("title"))) throw "El elemento no es un Book";
-    if(index > capacity()) throw "El índice está fuera de los límites";
+    if((index>capacity()) || (index< 0)) throw "El indice esta fuera de los limites de la lista";
     if(!regex.test(elem.ISBN)) throw "El ISBN del elemento no corresponde con las reglas";
 
     let elim = list[index];
@@ -143,6 +143,7 @@ function test() {
     
     try {
         let list = create();
+
         let elem1 = {
             ISBN: "978-44-9214-654-5", 
             title: "IT", 
@@ -200,18 +201,26 @@ function test() {
         console.log("Tamaño de la lista al añadir: " + add(list, elem1));
         console.log("Tamaño de la lista al añadir: " + add(list, elem2));
         console.log("Tamaño de la lista al añadir: " + add(list, elem3));
-        console.log("Tamaño de la lista al añadir: " + add(list, elem5));
-        console.log("Tamaño de la lista al añadir: " + addAt(list, elem4, 3));
+        console.log("Tamaño de la lista al añadir: " + add(list, elem4));
+        console.log("Tamaño de la lista al añadir: " + addAt(list, elem5, 3));
         console.log(list);
         
         console.log("Lista vacía: " + isEmpty(list));
         console.log("Lista llena: " + isFull(list));
         console.log("Tamaño de la lista: " + size(list));
+
         console.log(get(list, 3));
         console.log(toString(list));
+
         console.log("Posición desde el inicio: " + indexOf(list, elem3));
         console.log("Posición desde el final: " + lastIndexOf(list, elem5));
         console.log("Tamaño máximo de la lista: " + capacity(list));
+
+        console.log("Primer elemento de la lista: " + firstElement(list));
+        console.log("Último elemento de la lista: " + lastElement(list));
+        console.log(remove(list, 4));
+        console.log(removeElement(list, elem3));
+        console.log(set(list, elem6, 0));
 
         /*
         clear(list);
@@ -223,12 +232,6 @@ function test() {
         console.log(list);
 
         */
-
-        console.log("Primer elemento de la lista: " + firstElement(list));
-        console.log("Último elemento de la lista: " + lastElement(list));
-        console.log(remove(list, 4));
-        console.log(removeElement(list, elem3));
-        console.log(set(list, elem6, 0));
 
         console.log(list);
         //console.log("Tamaño de la lista al añadir: " + add(list, elem7));

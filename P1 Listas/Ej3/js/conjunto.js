@@ -71,8 +71,7 @@ function remove(set, elem) {
 }
 
 
-function testConjunto() {
-
+function testSet() {
     
     try {
         let set = create();
@@ -147,10 +146,16 @@ function testConjunto() {
         
         console.log("Conjunto vacío: " + isEmpty(set));
         console.log("Tamaño del conjunto: " + size(set));
+
         console.log(has(set, elem3));
         console.log(has(set, elem7));
+        
         console.log(toString(set));
         
+
+        console.log(remove(set, elem4));
+        console.log(set);
+
         /*
         clear(set);
         console.log("Tamaño del conjunto: " + size(set));
@@ -163,9 +168,6 @@ function testConjunto() {
         console.log(set);
         */
 
-        console.log(remove(set, elem3));
-        console.log(set);
-
         //console.log("Tamaño del conjunto al añadir: " + add(set, elem8));
 
     } catch(error) {
@@ -173,4 +175,4 @@ function testConjunto() {
     }
 
 }
-testConjunto();
+testSet();

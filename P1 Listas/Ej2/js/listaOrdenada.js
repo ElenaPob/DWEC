@@ -116,7 +116,7 @@ function removeElement(list, elem) {
     return false;
 }
 
-function testOrdenada() {
+function testLiOrd() {
     
     try {
         let list = create();
@@ -167,21 +167,27 @@ function testOrdenada() {
         console.log("Lista llena: " + isFull(list));
         console.log("Tamaño de la lista: " + size(list));
 
-        console.log("Tamaño de la lista al añadir: " + add(list, elem3));
-        console.log("Tamaño de la lista al añadir: " + add(list, elem2));
         console.log("Tamaño de la lista al añadir: " + add(list, elem1));
-        console.log("Tamaño de la lista al añadir: " + add(list, elem5));
+        console.log("Tamaño de la lista al añadir: " + add(list, elem2));
+        console.log("Tamaño de la lista al añadir: " + add(list, elem3));
         console.log("Tamaño de la lista al añadir: " + add(list, elem4));
+        console.log("Tamaño de la lista al añadir: " + add(list, elem5));
         console.log(list);
         
         console.log("Lista vacía: " + isEmpty(list));
         console.log("Lista llena: " + isFull(list));
         console.log("Tamaño de la lista: " + size(list));
+
         console.log(get(list, 3));
         console.log(toString(list));
+
         console.log("Posición desde el inicio: " + indexOf(list, elem1));
         console.log("Tamaño máximo de la lista: " + capacity(list));
         
+        console.log("Primer elemento de la lista: " + firstElement(list));
+        console.log("Último elemento de la lista: " + lastElement(list));
+        console.log(remove(list, 2));
+        console.log(removeElement(list, elem5));
         /*
         clear(list);
         console.log("Tamaño de la lista: " + size(list));
@@ -192,10 +198,6 @@ function testOrdenada() {
         console.log("Tamaño de la lista al añadir: " + add(list, elem4));
         console.log(list);
         */
-        console.log("Primer elemento de la lista: " + firstElement(list));
-        console.log("Último elemento de la lista: " + lastElement(list));
-        console.log(remove(list, 4));
-        console.log(removeElement(list, elem1));
 
         console.log(list);
 
@@ -207,4 +209,4 @@ function testOrdenada() {
 
 
 }
-testOrdenada();
+testLiOrd();
