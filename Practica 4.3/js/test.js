@@ -6,15 +6,22 @@
 	InvalidValueException,
 	AbstractClassException } from './VideoSystem.js';
 import {Coords, User, Person , Production , Movie , Serie , Category, Resource} from './VideoSystem.js';
-import  {VideoSystemException ,
-	AuthorVideoSystemException ,
-	AuthorExistsVideoSystemException ,
-	AuthorNotExistsVideoSystemException ,
-	DefaultAuthorVideoSystemException ,
+export {VideoSystemException ,
+	ActorVideoSystemException  ,
+	ActorExistsVideoSystemException ,
+	ActorNotExistsVideoSystemException,
+	UserVideoSystemException ,
+	UserExistsVideoSystemException ,
+	UserNotExistsVideoSystemException ,
+	DirectorVideoSystemException,
+	DirectorExistsVideoSystemException,
+	DirectorNotExistsVideoSystemException,
+	ProductionVideoSystemException,
+	ProductionExistsVideoSystemException,
+	ProductionNotExistsVideoSystemException,
 	CategoryVideoSystemException ,
 	CategoryExistsVideoSystemException ,
 	CategoryNotExistsVideoSystemException ,
-	DefaultCategoryVideoSystemException ,
 	VideoVideoSystemException ,
 	VideoNotExistsVideoSystemException ,
 	VideoBelongsDifferentAuthorSystemException } from './VideoSystem.js';
@@ -131,9 +138,9 @@ function test(){
 	testCoords();
 
 
-	let a1 = new Person("pepito","perez");
-	let a2 = new Person("lolita","martin");
-	let a3 = new Person("clarita","lopez");
+	let a1 = new Person("pepito","perez", 27-11-1960);
+	let a2 = new Person("lolita","martin", 27-11-1960);
+	let a3 = new Person("clarita","lopez", 27-11-1960);
 	testPerson();
 
 	let m1 = new Movie("Cars", "descripción película 1");
@@ -154,30 +161,14 @@ function test(){
 
 	console.log ("--- Testeo VideoSystem. ---");
 	let video = VideoSystem.getInstance();
-	video.title = "Reproductor de videos";
+	video.name = "Reproductor de videos";
 
 	console.log ("Instancia VideoSystem: " + video.name);			
 
-	video.addAuthor(a1);
-	video.addAuthor(a2);
-	video.addAuthor(a3);
+	video.addUsers(u1);
+	video.addUsers(u2);
 
-	showAuthors();
-	try {
-		video.addAuthor(a3);
-	} catch (error){
-		console.log(error);
-	}
-
-	video.addCategory(cat1);
-	video.addCategory(cat2);
-	video.addCategory(cat3);
-	showCategories(video.categories);
-	try {
-		video.addCategory(cat3); 
-	} catch (error){
-		console.log(error);
-	}
+	
 
 		
 } 

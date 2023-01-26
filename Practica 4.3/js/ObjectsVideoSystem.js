@@ -81,8 +81,8 @@ class Person {
 
 	constructor(name, lastname1, born){
 		name = name.trim();
-		lastname1 = lastname1.trim();
-		born = born.trim();
+		lastname1 = lastname1;
+		born = new Date();
 	
 		if (name === 'undefined' || name === '') throw new EmptyValueException("name");
 		if (/^[a-zA-Z][a-zA-Z0-9_\-]*(\.[a-zA-Z0-9_\-]*)*[a-zA-Z0-9]$/.test (name) !== true)

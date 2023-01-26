@@ -15,24 +15,24 @@ class VideoSystemException extends BaseException {
 	}
 }
 
-class AuthorVideoSystemException extends VideoSystemException {
+class ActorVideoSystemException extends VideoSystemException {
 	constructor(fileName, lineNumber) {
-		super("Error: The method needs a Author parameter.", fileName, lineNumber);
-		this.name = "AuthorVideoSystemException";
+		super("Error: The method needs a actor parameter.", fileName, lineNumber);
+		this.name = "ActorVideoSystemException";
 	}
 }
 
-class AuthorExistsVideoSystemException extends VideoSystemException {
+class ActorExistsVideoSystemException extends VideoSystemException {
 	constructor(fileName, lineNumber) {
-		super("Error: The author exists in the video system.", fileName, lineNumber);
-		this.name = "AuthorExistsVideoSystemException";
+		super("Error: The actor exists in the video system.", fileName, lineNumber);
+		this.name = "ActorExistsVideoSystemException";
 	}
 }
 
-class AuthorNotExistsVideoSystemException extends VideoSystemException {
+class ActorNotExistsVideoSystemException extends VideoSystemException {
 	constructor(fileName, lineNumber) {
-		super("Error: The author doesn't exist in the video system.", fileName, lineNumber);
-		this.name = "AuthorNotExistsVideoSystemException";
+		super("Error: The actor doesn't exist in the video system.", fileName, lineNumber);
+		this.name = "ActorNotExistsVideoSystemException";
 	}
 }
 
@@ -54,6 +54,48 @@ class UserNotExistsVideoSystemException extends VideoSystemException {
 	constructor(fileName, lineNumber) {
 		super("Error: The user doesn't exist in the video system.", fileName, lineNumber);
 		this.name = "UserNotExistsVideoSystemException";
+	}
+}
+
+class DirectorVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The method needs a director parameter.", fileName, lineNumber);
+		this.name = "DirectorVideoSystemException";
+	}
+}
+
+class DirectorExistsVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The director exists in the video system.", fileName, lineNumber);
+		this.name = "DirectorExistsVideoSystemException";
+	}
+}
+
+class DirectorNotExistsVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The director doesn't exist in the video system.", fileName, lineNumber);
+		this.name = "DirectorNotExistsVideoSystemException";
+	}
+}
+
+class ProductionVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The method needs a Production parameter.", fileName, lineNumber);
+		this.name = "ProductionVideoSystemException";
+	}
+}
+
+class ProductionExistsVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The Production exists in the video system.", fileName, lineNumber);
+		this.name = "ProductionExistsVideoSystemException";
+	}
+}
+
+class ProductionNotExistsVideoSystemException extends VideoSystemException {
+	constructor(fileName, lineNumber) {
+		super("Error: The Production doesn't exist in the video system.", fileName, lineNumber);
+		this.name = "ProductionNotExistsVideoSystemException";
 	}
 }
 
@@ -141,7 +183,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 			//Hemos elegido comparar por contenido no por referencia.
 			#getActorsPosition(actor) {
 				if (!(actor instanceof Person)) {
-					throw new AuthorVideoSystemException();
+					throw new ActorVideoSystemException();
 				}
 
 				function compareElements(element) {
@@ -154,9 +196,9 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 			//Dado una categoría, devuelve la posición de esa categoría en el array de categorías o -1 si no lo encontramos.
 			//Hemos elegido comparar por contenido no por referencia.
 			#getCategoryPosition(category) {
-				if (!(category instanceof Category)) {
+				if (!(category instanceof Category)) 
 					throw new CategoryVideoSystemException();
-				}
+			
 
 				function compareElements(element) {
 					return (element.category.title === category.title)
@@ -179,6 +221,34 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 				return this.#users.findIndex(compareElements);
 			}
 
+			//Dado un director, devuelve la posición de ese director en el array de director o -1 si no lo encontramos.
+			//Hemos elegido comparar por contenido no por referencia.
+			#getProductionPosition(production) {
+				if (!(production instanceof Production)) {
+					throw new ProductionVideoSystemException();
+				}
+
+				function compareElements(element) {
+					return (element.production.title === production.title)
+				}
+
+				return this.#production.findIndex(compareElements);
+			}
+
+			//Dado una produccion, devuelve la posición de esa produccion en el array de produccion o -1 si no lo encontramos.
+			//Hemos elegido comparar por contenido no por referencia.
+			#getDirectorsPosition(director) {
+				if (!(director instanceof Person)) {
+					throw new DirectorVideoSystemException();
+				}
+
+				function compareElements(element) {
+					return (element.director.nickname === director.nickname)
+				}
+
+				return this.#directors.findIndex(compareElements);
+			}
+
 
 			/* Definición del atributo name */
 			get name() {
@@ -191,7 +261,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 			}
 
 			/*Users */
-			//Devuelve un iterator de los actors
+			//Devuelve un iterator de los usuarios
 			get users() {
 				let nextIndex = 0;
 				// referencia para habilitar el closure en el objeto. En el generador se pierde la referencia this, por lo que hay que guardarla como closure
@@ -213,7 +283,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 					throw new UserVideoSystemException();
 				}
 				// Trabaja con un array de objetos User
-				let position = this.#getActorsPosition(user);
+				let position = this.#getUsersPosition(user);
 				if (position === -1) {
 					this.#users.push({
 						username:user,
@@ -230,10 +300,10 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 				if (!(user instanceof User)) {
 					throw new UserVideoSystemException();
 				}
-				// Recuperamos la posición del actor en el array.
-				let position = this.#getActorsPosition(user);
+				// Recuperamos la posición del usuario en el array.
+				let position = this.#getUsersPosition(user);
 				if (position !== -1) {
-					if (user.username !== this.#user.username) {	
+					if (user.username !== this.#users.username) {	
 						this.#users.splice(position, 1);
 					}
 				} else {
@@ -242,6 +312,109 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 				return this.#users.length;
 			}
 
+			/*Directores */
+			//Devuelve un iterator de los directores
+			get directors() {
+				let nextIndex = 0;
+				// referencia para habilitar el closure en el objeto. En el generador se pierde la referencia this, por lo que hay que guardarla como closure
+				let array = this.#directors;
+				// Los getter no admiten generadores, deben devolver un objeto iterable. [Symbol.iterator]() puede ser generador.
+				return {
+				  * [Symbol.iterator](){
+					// Recorremos todos los directores
+					for (let i = 1; i < array.length; i++){
+					  yield array[i].directors;
+					}
+				  }
+				}			  
+			}
+
+			//Añade un nuevo director 
+			addDirector(director) {
+				if (!(director instanceof Person)) {
+					throw new DirectorVideoSystemException();
+				}
+				// Trabaja con un array de objetos director
+				let position = this.#getDirectorsPosition(director);
+				if (position === -1) {
+					this.#directors.push({
+						nickname:director,
+					});
+				} else {
+					throw new DirectorExistsVideoSystemException();
+				}
+
+				return this;
+			}
+
+			//Elimina un nuevo director
+			removeDirector(director) {
+				if (!(director instanceof Person)) {
+					throw new DirectorVideoSystemException();
+				}
+				// Recuperamos la posición del director en el array.
+				let position = this.#getDirectorsPosition(director);
+				if (position !== -1) {
+					if (director.nickname !== this.#directors.nickname) {	
+						this.#directors.splice(position, 1);
+					}
+				} else {
+					throw new DirectorNotExistsVideoSystemException();
+				}
+				return this.#directors.length;
+			}
+
+			/*Production */
+			//Devuelve un iterator de las production
+			get productions() {
+				let nextIndex = 0;
+				// referencia para habilitar el closure en el objeto. En el generador se pierde la referencia this, por lo que hay que guardarla como closure
+				let array = this.#production;
+				// Los getter no admiten generadores, deben devolver un objeto iterable. [Symbol.iterator]() puede ser generador.
+				return {
+				  * [Symbol.iterator](){
+					// Recorremos todos los directores
+					for (let i = 1; i < array.length; i++){
+					  yield array[i].production;
+					}
+				  }
+				}			  
+			}
+
+			//Añade una nueva prodccion 
+			addProduction(production) {
+				if (!(production instanceof Production)) {
+					throw new ProductionVideoSystemException();
+				}
+				// Trabaja con un array de objetos produccion
+				let position = this.#getProductionPosition(production);
+				if (position === -1) {
+					this.#production.push({
+						title:production,
+					});
+				} else {
+					throw new ProductionExistsVideoSystemException();
+				}
+
+				return this;
+			}
+
+			//Elimina una nueva produccion
+			removeProduction(production) {
+				if (!(production instanceof Production)) {
+					throw new ProductionVideoSystemException();
+				}
+				// Recuperamos la posición de la produccion en el array.
+				let position = this.#getProductionPosition(production);
+				if (position !== -1) {
+					if (production.title !== this.#production.title) {	
+						this.#production.splice(position, 1);
+					}
+				} else {
+					throw new ProductionNotExistsVideoSystemException();
+				}
+				return this.#production.length;
+			}
 
 			/*Actores */
 			//Devuelve un iterator de los actors
@@ -263,7 +436,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 			//Añade un nuevo autor al gestor
 			addActor(actor) {
 				if (!(actor instanceof Person)) {
-					throw new AuthorVideoSystemException();
+					throw new ActorVideoSystemException();
 				}
 				// Trabaja con un array de objetos Author
 				let position = this.#getUsersPosition(actor);
@@ -273,7 +446,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 						lastname1: ""
 					});
 				} else {
-					throw new AuthorExistsVideoSystemException();
+					throw new ActorExistsVideoSystemException();
 				}
 
 				return this;
@@ -282,7 +455,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 			//Elimina un nuevo autor del gestor
 			removeActor(actor) {
 				if (!(actor instanceof Person)) {
-					throw new AuthorVideoSystemException();
+					throw new ActorVideoSystemException();
 				}
 				// Recuperamos la posición del actor en el array.
 				let position = this.#getActorsPosition(actor);
@@ -293,7 +466,7 @@ let VideoSystem = (function () { //La función anónima devuelve un método getI
 						throw new DefaultAuthorVideoSystemException();
 					}
 				} else {
-					throw new AuthorNotExistsVideoSystemException();
+					throw new ActorNotExistsVideoSystemException();
 				}
 				return this.#actors.length;
 			}
@@ -363,16 +536,21 @@ export {BaseException,
 	AbstractClassException };
 export {Coords, User, Person , Production , Movie , Serie , Category, Resource};
 export {VideoSystemException ,
-	AuthorVideoSystemException ,
-	AuthorExistsVideoSystemException ,
-	AuthorNotExistsVideoSystemException ,
+	ActorVideoSystemException  ,
+	ActorExistsVideoSystemException ,
+	ActorNotExistsVideoSystemException,
 	UserVideoSystemException ,
 	UserExistsVideoSystemException ,
 	UserNotExistsVideoSystemException ,
+	DirectorVideoSystemException,
+	DirectorExistsVideoSystemException,
+	DirectorNotExistsVideoSystemException,
+	ProductionVideoSystemException,
+	ProductionExistsVideoSystemException,
+	ProductionNotExistsVideoSystemException,
 	CategoryVideoSystemException ,
 	CategoryExistsVideoSystemException ,
 	CategoryNotExistsVideoSystemException ,
-	DefaultCategoryVideoSystemException ,
 	VideoVideoSystemException ,
 	VideoNotExistsVideoSystemException ,
 	VideoBelongsDifferentAuthorSystemException };
