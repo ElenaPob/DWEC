@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Mi Tienda</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="fontawesome/css/all.min.css" rel="stylesheet">
+
+	<!-- Estilos locales -->
+	<link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<a id="logo" class="navbar-brand" href="#">Mi Tienda</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+					aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse row" id="navbarResponsive">
+					<div class="col-lg-8 d-lg-flex justify-content-around">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a id="init" class="nav-link" href="#">Inicio
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="examplesDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Ejemplos
+								</a>
+								<div class="dropdown-menu" aria-labelledby="examplesDropdown" id="examplesLinks">
+									<a class="dropdown-item">03-01 Tutorial Básico</a>
+									<a class="dropdown-item">03-02 FizzBuzz</a>
+									<a class="dropdown-item">03-03 Sintaxis y operadores</a>
+									<a class="dropdown-item">03-05 Arrays</a>
+									<a class="dropdown-item">03-06 Otros tipos primitivos</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item">04-01 Funciones</a>
+									<a class="dropdown-item">04-02 Objetos y prototipos</a>
+									<a class="dropdown-item">04-03 Objetos ES5</a>
+									<a class="dropdown-item">04-05 Patrones con objetos ES5</a>
+									<a class="dropdown-item">04-06 Objetos ES6</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item">05-01 DOM</a>
+									<a class="dropdown-item">05-02 jQuery</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navServices" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Servicios
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navServices">
+									<a class="dropdown-item" href="#footer">Servicios</a>
+									<a class="dropdown-item" href="sales/sales.html">Registro de Ventas</a>
+								</div>
+
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#footer">Contacto</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Productos
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">Cámaras</a>
+									<a class="dropdown-item" href="#">Portátiles</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Tablets</a>
+									<a class="dropdown-item" href="#">Teléfonos móviles</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a id="shoppingcart" class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
+							</li>
+						</ul>
+					</div>
+					<div
+						class="my-1 col-lg-4 header-nav-utilities d-inline-flex align-items-center justify-content-lg-end">
+						<div class="account d-flex mx-2 flex-column" style="text-align: right;">
+							John Doe <a href="#">Cerrar sesión</a>
+						</div>
+						<div class="image">
+							<img alt="John Doe" src="img/user.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- BANNER -->
+	<div class="banner">
+		<div class="jumbotron jumbotron-fluid d-flex">
+			<div
+				class="text-dark container d-flex flex-column justify-content-center align-items-sm-stretch align-items-md-center">
+				<h1 id="message" class="col-sm-12">Obtén un descuento</h1>
+				<h2 id="discount">20%</h2>
+				<p id="message2">Solo está temporada</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Inicio Objetos y prototipos -->
+	<section id="examples" class="container cat-list">
+		<!-- Inicio Tutorial Básico -->
+		<div class="row">
+			<h3>03-01 Tutorial Básico</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#tb01">Tipos y operadores</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#tb02">Flujo de programa</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#tb03">Arrays</a>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#tb04">Objetos</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="tb01">
+					<button class="btn">Variable y constantes</button>
+					<button class="btn">Tipos y operadores: Numbers</button>
+					<button class="btn">Tipos y operadores: String</button>
+					<button class="btn">Tipos y operadores: Boolean</button>
+					<button class="btn">Tipos y operadores: Null y undefined</button>
+					<button class="btn">Tipos y operadores: Objeto literal</button>
+				</div>
+				<div class="tab-pane container" id="tb02">
+					<button class="btn">Condicionales</button>
+					<button class="btn">Ámbito de variables</button>
+					<button class="btn">Bucles</button>
+					<button class="btn">Funciones</button>
+				</div>
+				<div class="tab-pane container" id="tb03">
+					<button class="btn">Arrays</button>
+					<button class="btn">Manipulación de arrays</button>
+					<button class="btn">Recorrer un array</button>
+				</div>
+				<div class="tab-pane container" id="tb04">
+					<button class="btn">Propiedades</button>
+					<button class="btn">Métodos</button>
+					<button class="btn">Paso por referencia</button>
+					<button class="btn">Styling DOM</button>
+					<button class="btn">Detectando eventos</button>
+					<button class="btn">Objeto classList</button>
+					<button class="btn">Ámbito global</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Tutorial Básico -->
+		<!-- Inicio FizzBuzz -->
+		<div class="row">
+			<h3>03-02 Ejemplo FizzBuzz</h3>
+			<button class="btn">FizzBuzz V1</button>
+			<button class="btn">FizzBuzz V2</button>
+			<button class="btn">FizzBuzz V3</button>
+		</div>
+		<!-- Fin FizzBuzz -->
+		<!-- Inicio Sintaxis y operadores -->
+		<div class="row">
+			<h3>03-03 Sintaxis y operadores</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#so01">Switch</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so02">For</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so03">Math</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so04">Corto Ciruito</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so05">Date</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so06">Excepciones</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#so07">Spread</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="so01">
+					<button class="btn">Claúsula default</button>
+					<button class="btn">Múltiples case</button>
+					<button class="btn">Perdida clausula Break</button>
+					<button class="btn">Comparación estricta</button>
+				</div>
+				<div class="tab-pane container" id="so02">
+					<button class="btn">For-in</button>
+					<button class="btn">For-of</button>
+					<button class="btn">String como un array</button>
+					<button class="btn">Rompiendo un bucle</button>
+					<button class="btn">Saltando iteración</button>
+				</div>
+				<div class="tab-pane container" id="so03">
+					<button class="btn">Constantes de Number</button>
+					<button class="btn">Métodos de Number</button>
+					<button class="btn">Chequear NaN</button>
+					<button class="btn">Epsilon</button>
+					<button class="btn">Enteros seguros</button>
+					<button class="btn">Enteros aleatorios</button>
+				</div>
+				<div class="tab-pane container" id="so04">
+					<button class="btn">Evitar errores</button>
+					<button class="btn">Valores por defecto</button>
+					<button class="btn">Invocar una función</button>
+				</div>
+				<div class="tab-pane container" id="so05">
+					<button class="btn">Calculo de días</button>
+					<button class="btn">Reloj digital</button>
+					<button class="btn">Formato de fecha</button>
+				</div>
+				<div class="tab-pane container" id="so06">
+					<button class="btn">Try-catch</button>
+					<button class="btn">Try-catch-finally</button>
+					<button class="btn">Error personalizado</button>
+					<button class="btn">Range Error</button>
+					<button class="btn">Type Error</button>
+					<button class="btn">URI Error</button>
+				</div>
+				<div class="tab-pane container" id="so07">
+					<button class="btn">String a array</button>
+					<button class="btn">Copiar un array</button>
+					<button class="btn">Copiar array de objetos</button>
+					<button class="btn">Concatenar arrays</button>
+					<button class="btn">Spread en constructores</button>
+					<button class="btn">Spread con argumentos</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Sintaxis y operadores -->
+		<!-- Inicio Arrays -->
+		<div class="row">
+			<h3>03-05 Arrays</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#arr1">Array</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#arr2">Set</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#arr3">Map</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#arr4">Weak</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="arr1">
+					<button class="btn">Index-of</button>
+					<button class="btn">Find</button>
+					<button class="btn">ForEach</button>
+					<button class="btn">ForEach con this</button>
+					<button class="btn">Mapear un array</button>
+					<button class="btn">Ordendar por enteros</button>
+					<button class="btn">Ordendar por string</button>
+					<button class="btn">Filtrado</button>
+					<button class="btn">Eliminar elementos</button>
+					<button class="btn">Verificar características</button>
+					<button class="btn">Desestructurando un array</button>
+				</div>
+				<div class="tab-pane container" id="arr2">
+					<button class="btn">Trabajando con Set</button>
+					<button class="btn">Inicializar Set</button>
+					<button class="btn">Iterar sobre Set V1</button>
+					<button class="btn">Iterar sobre Set V2</button>
+					<button class="btn">Iterar sobre Set V3</button>
+				</div>
+				<div class="tab-pane container" id="arr3">
+					<button class="btn">Trabajando con Map</button>
+					<button class="btn">Iterar sobre Map V1</button>
+					<button class="btn">Iterar sobre Map V2</button>
+					<button class="btn">Iterar sobre Map V3</button>
+					<button class="btn">Iterar sobre Map V4</button>
+				</div>
+				<div class="tab-pane container" id="arr4">
+					<button class="btn">WeakSet</button>
+					<button class="btn">WeakMap</button>
+					<button class="btn">Cache con WeakMap</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Arrays -->
+		<!-- Inicio Otros tipos primitivos -->
+		<div class="row">
+			<h3>03-06 Otros tipos primitivos</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#ap1">Expresiones Regulares</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#ap2">Symbol</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="ap1">
+					<button class="btn">Crear una Expresión Regular</button>
+					<button class="btn">Caracteres opcionales</button>
+					<button class="btn">Rangos de caracteres predefinidos</button>
+					<button class="btn">Cuantificadores con rangos</button>
+					<button class="btn">Cuantificadores con comodines V1</button>
+					<button class="btn">Cuantificadores con comodines V2</button>
+					<button class="btn">Cuantificadores con comodines V3</button>
+					<button class="btn">Caracteres de escape</button>
+					<button class="btn">Agrupamientos</button>
+					<button class="btn">Posición de la cadena</button>
+					<button class="btn">Delimitadores</button>
+					<button class="btn">Posicionamiento en el String</button>
+					<button class="btn">Modificadores</button>
+					<button class="btn">Iterar sobre Expresión Regular</button>
+					<button class="btn">Métodos de String V1</button>
+					<button class="btn">Métodos de String V2</button>
+					<button class="btn">Ejemplos reales</button>
+				</div>
+				<div class="tab-pane container" id="ap2">
+					<button class="btn">Crear un Symbol</button>
+					<button class="btn">Symbol en propiedades</button>
+					<button class="btn">Colisiones</button>
+					<button class="btn">Registro Global</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Otros tipos primitivos -->
+		<div class="row"></div> <!-- Delimitador -->
+		<!-- Inicio Funciones -->
+		<div class="row">
+			<h3>04-01 Funciones</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#fi01">Introducción</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#fi02">Closure</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#fi03">Funciones Arrow</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#fi04">Contexto en funciones</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#fi05">Propagación</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="fi01">
+					<button class="btn">Conceptos sobre las funciones</button>
+					<button class="btn">Parámetros por defecto</button>
+				</div>
+				<div class="tab-pane container" id="fi02">
+					<button class="btn">Ámbito de una función</button>
+					<button class="btn">IIFE</button>
+					<button class="btn">Closure</button>
+					<button class="btn">Closure con IIFE</button>
+					<button class="btn">Closure con objetos</button>
+				</div>
+				<div class="tab-pane container" id="fi03">
+					<button class="btn">Función arrow</button>
+					<button class="btn">Arrow como callback</button>
+				</div>
+				<div class="tab-pane container" id="fi04">
+					<button class="btn">Propiedades de una función</button>
+					<button class="btn">Contexto por defecto</button>
+					<button class="btn">Contexto implícito</button>
+					<button class="btn">Método call</button>
+					<button class="btn">Método apply</button>
+					<button class="btn">Método bind</button>
+				</div>
+				<div class="tab-pane container" id="fi05">
+					<button class="btn">Parámetro rest</button>
+					<button class="btn">Operador spread</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Funciones -->
+		<!-- Inicio Objetos y prototipos -->
+		<div class="row">
+			<h3>04-02 Objetos y prototipos</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#op1">Objetos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#op2">Propiedades</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#op3">Prototipos e interfaces</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#op4">Herencia</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="op1">
+					<button class="btn">Objetos dinámicos</button>
+					<button class="btn">Método assign</button>
+					<button class="btn">Función constructora</button>
+					<button class="btn">Método create</button>
+				</div>
+				<div class="tab-pane container" id="op2">
+					<button class="btn">Notación corchete</button>
+					<button class="btn">Propiedad de valor</button>
+					<button class="btn">Propiedad de acceso</button>
+				</div>
+				<div class="tab-pane container" id="op3">
+					<button class="btn">Propiedades prototype y __proto__</button>
+					<button class="btn">Prototipo de función vs prototipo de objeto</button>
+					<button class="btn">Cadena de prototipos</button>
+					<button class="btn">Cambiando prototipos</button>
+					<button class="btn">Herencia entre objetos</button>
+				</div>
+				<div class="tab-pane container" id="op4">
+					<button class="btn">Ejemplo de herencia</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Objetos y prototipos -->
+
+		<!-- Inicio Objetos ES5 -->
+		<div class="row">
+			<h3>04-03 Objetos ES5</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#oes501">Detalle modelo de objetos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#oes502">Ámbito de los miembros de un objeto</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#oes503">Objetos Error</a>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#oes504">Ejercicio objetos</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="oes501">
+					<button class="btn">Constructores sin parámetros</button>
+					<button class="btn">Propiedades en prototipos</button>
+					<button class="btn">Parámetros en constructores</button>
+					<button class="btn">Identificadores</button>
+					<button class="btn">Herencia múltiple</button>
+					<button class="btn">Cadena de prototipos</button>
+				</div>
+				<div class="tab-pane container" id="oes502">
+					<button class="btn">Privado, público y estático</button>
+					<button class="btn">Ejercicio ámbito</button>
+					<button class="btn">Métodos de la clase padre: Propiedades públicas</button>
+					<button class="btn">Métodos de la clase padre: Campos privados</button>
+				</div>
+				<div class="tab-pane container" id="oes503">
+					<button class="btn">Lanzar error genérico</button>
+					<button class="btn">Tipos de errores</button>
+					<button class="btn">Personalizar Error v1</button>
+					<button class="btn">Personalizar Error v2</button>
+					<button class="btn">Jerarquía de excepciones</button>
+					<button class="btn">Ejercicio excepciones</button>
+				</div>
+				<div class="tab-pane container" id="oes504">
+					<button class="btn">Solución</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Objetos ES5 -->
+
+		<!-- Inicio Patrones en objetos ES5 -->
+		<div class="row">
+			<h3>04-05 Patrones en objetos ES5</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#pes501">Ejemplos de patrones ES5</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="pes501">
+					<button class="btn">Esquema IIFE</button>
+					<button class="btn">Ejemplo IIFE</button>
+					<button class="btn">Clase abstracta</button>
+					<button class="btn">Interfaz</button>
+					<button class="btn">Esquema Singleton</button>
+					<button class="btn">Sistema Logger con Singleton</button>
+					<button class="btn">Esquema Módulo</button>
+					<button class="btn">Esquema Iterador</button>
+					<button class="btn">Patrón Iterador</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Patrones en objetos ES5 -->
+
+		<!-- Inicio Objetos ES6 -->
+		<div class="row">
+			<h3>04-06 Objetos ES6</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#oes601">Objetos ES5</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#oes602">Campos privados</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#oes603">Ampliación de subclases</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#oes604">Ejercicio clases ES6</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#oes605">Iteradores</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#oes606">Generadores</a>
+					</li>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="oes601">
+					<button class="btn">Declaración clases ES6</button>
+					<button class="btn">Class en una expresión</button>
+					<button class="btn">Propieades en cuerpo de la clase</button>
+				</div>
+				<div class="tab-pane container" id="oes602">
+					<button class="btn">Nombrado por convenio</button>
+					<button class="btn">Uso de WeakMap</button>
+					<button class="btn">Uso de Symbol</button>
+					<button class="btn">Uso de caracter #</button>
+				</div>
+				<div class="tab-pane container" id="oes603">
+					<button class="btn">Extendiendo objetos estándar</button>
+					<button class="btn">Mezcla de clases</button>
+					<button class="btn">Composición de clases</button>
+					<button class="btn">Clases abstractas</button>
+				</div>
+				<div class="tab-pane container" id="oes604">
+					<button class="btn">Solución</button>
+				</div>
+				<div class="tab-pane container" id="oes605">
+					<button class="btn">Objeto Iterador ES6</button>
+					<button class="btn">Iteradores nativos</button>
+					<button class="btn">Iterador personalizado</button>
+					<button class="btn">Iterable e iterador</button>
+					<button class="btn">Método return()</button>
+					<button class="btn">Ejemplo List</button>
+				</div>
+				<div class="tab-pane container" id="oes606">
+					<button class="btn">Sintaxis generador</button>
+					<button class="btn">Yield</button>
+					<button class="btn">Generador como iterador</button>
+					<button class="btn">Iterando sobre generador</button>
+					<button class="btn">Comunicación con el generador</button>
+					<button class="btn">Método throw()</button>
+					<button class="btn">Ejemplo List</button>
+					<button class="btn">Generador recursivo</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Objetos ES6 -->
+
+		<div class="row"></div> <!-- Delimitador -->
+
+		<!-- Inicio ejemplos DOM -->
+		<div class="row">
+			<h3>05-01 DOM</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#DOM1">Selección</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM2">Manipulación de elementos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM3">Relaciones entre elementos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM4">Crear elementos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM5">Manejadores de eventos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM6">Objeto Event</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM7">Propagación de eventos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#DOM8">Proyecto eventos</a>
+					</li>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="DOM1">
+					<button class="btn">getElementById()</button>
+					<button class="btn">querySelector()</button>
+					<button class="btn">querySelectorAll()</button>
+					<button class="btn">getElementsByTagName()</button>
+					<button class="btn">getElementsByClassName()</button>
+				</div>
+				<div class="tab-pane container" id="DOM2">
+					<button class="btn">Modificar contenido</button>
+					<button class="btn">Trabajar con atributos</button>
+					<button class="btn">Modificar estilo v1</button>
+					<button class="btn">Modificar estilo v2</button>
+					<button class="btn">Modificar estilo v3</button>
+					<button class="btn">Atributos personalizados</button>
+				</div>
+				<div class="tab-pane container" id="DOM3">
+					<button class="btn">Relaciones de primer nivel</button>
+					<button class="btn">Relaciones entre hermanos</button>
+					<button class="btn">Ancestros</button>
+				</div>
+				<div class="tab-pane container" id="DOM4">
+					<button class="btn">Crear elementos</button>
+					<button class="btn">Insertar elementos</button>
+					<button class="btn">Clonar elementos</button>
+					<button class="btn">Reemplazar elementos</button>
+					<button class="btn">Eliminar elementos</button>
+				</div>
+				<div class="tab-pane container" id="DOM5">
+					<button class="btn">Manejadores como atributos</button>
+					<button class="btn">Referencia this</button>
+					<button class="btn">addEventListener()</button>
+					<button class="btn">Ejercicio 1</button>
+					<button class="btn">Ejercicio 2</button>
+					<button class="btn">removeEventListener()</button>
+				</div>
+				<div class="tab-pane container" id="DOM6">
+					<button class="btn">Recuperar el evento</button>
+					<button class="btn">Relación this y target</button>
+					<button class="btn">Evento click</button>
+					<button class="btn">Eventos mouse: enter, leave, move</button>
+					<button class="btn">Eventos mouse: over, out</button>
+					<button class="btn">Eventos de foco</button>
+					<button class="btn">Evento keydown</button>
+					<button class="btn">Evento keyup</button>
+				</div>
+				<div class="tab-pane container" id="DOM7">
+					<button class="btn">Bubbling</button>
+					<button class="btn">Capturing</button>
+					<button class="btn">Evento personalizado</button>
+					<button class="btn">Deterner propagación</button>
+					<button class="btn">Cancelar acciones por defecto</button>
+				</div>
+				<div class="tab-pane container" id="DOM8">
+					<button class="btn">Ver proyecto</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Objetos DOM -->
+
+		<!-- Inicio ejemplos jQuery -->
+		<div class="row">
+			<h3>05-02 jQuery</h3>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#jQuery1">Uso de la librería</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery2">Selección por atributos y orden</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery3">Iteración selección por filtrado </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery4">Relación entre elementos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery5">Manipulación de elementos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery6">Eventos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery7">Ejercicios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#jQuery8">Animaciones</a>
+					</li>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active container" id="jQuery1">
+					<button class="btn">Mostrar elementos</button>
+					<button class="btn">Ocultar elementos</button>
+					<button class="btn">Mostrar texto</button>
+				</div>
+				<div class="tab-pane container" id="jQuery2">
+					<button class="btn">Manipulación de atributos</button>
+					<button class="btn">DOM a partir de jQuery</button>
+					<button class="btn">Selección por atributos</button>
+					<button class="btn">Selección por orden: first() y last()</button>
+					<button class="btn">Selección por orden: :first-child y :last-child</button>
+					<button class="btn">Selección por orden: :first-of-type y :last-of-type</button>
+					<button class="btn">Selección por orden: :nth-child(n)y :nth-last-child(n)</button>
+					<button class="btn">Selección por orden: :eq(n), lt(n) y gt(n)</button>
+					<button class="btn">Selección por orden: even()</button>
+				</div>
+				<div class="tab-pane container" id="jQuery3">
+					<button class="btn">Iteración sobre selección múltiple</button>
+					<button class="btn">Modificación css múltiple</button>
+					<button class="btn">Filtrado: filter()</button>
+					<button class="btn">Filtrado: not()</button>
+					<button class="btn">Filtrado: has()</button>
+					<button class="btn">Filtrado: map()</button>
+					<button class="btn">Filtrado: slice()</button>
+				</div>
+				<div class="tab-pane container" id="jQuery4">
+					<button class="btn">Ancestros: parent()</button>
+					<button class="btn">Ancestros: parents()</button>
+					<button class="btn">Ancestros: parentsUntil()</button>
+					<button class="btn">Ancestros: offsetParent() y closest()</button>
+					<button class="btn">Descendientes</button>
+					<button class="btn">Hermanos</button>
+				</div>
+				<div class="tab-pane container" id="jQuery5">
+					<button class="btn">Fijar contenido</button>
+					<button class="btn">Objeto style</button>
+					<button class="btn">Utilizando clases</button>
+					<button class="btn">Insertar elementos</button>
+					<button class="btn">Insertar elementos recto a un elemento</button>
+					<button class="btn">Mover elementos recto a un elemento</button>
+					<button class="btn">Insertar elementos como hermanos</button>
+					<button class="btn">Mover elementos como hijos</button>
+					<button class="btn">Reemplazar elementos</button>
+					<button class="btn">Envolver elementos</button>
+					<button class="btn">Eliminar elementos</button>
+				</div>
+				<div class="tab-pane container" id="jQuery6">
+					<button class="btn">Ejemplo evento click 1</button>
+					<button class="btn">Ejemplo evento click 2</button>
+					<button class="btn">Evento on</button>
+					<button class="btn">Evento one</button>
+					<button class="btn">Propiedad data</button>
+					<button class="btn">Evento click</button>
+					<button class="btn">Eventos mouseenter, mouseleave y mousemove</button>
+					<button class="btn">Eventos mouseover y mouseout</button>
+					<button class="btn">Eventos de foco</button>
+					<button class="btn">Evento hover</button>
+					<button class="btn">Evento keydown</button>
+					<button class="btn">Evento keyup</button>
+				</div>
+				<div class="tab-pane container" id="jQuery7">
+					<button class="btn">Lotería</button>
+					<button class="btn">Buscador</button>
+				</div>
+				<div class="tab-pane container" id="jQuery8">
+					<button class="btn">Efectos básicos</button>
+					<button class="btn">Efectos y función callback</button>
+					<button class="btn">Efectos slide</button>
+					<button class="btn">Efectos fade</button>
+					<button class="btn">Animaciones encadenadas</button>
+					<button class="btn">Detener animaciones</button>
+					<button class="btn">Opciones de animación</button>
+					<button class="btn">Ejercicio de animaciones</button>
+				</div>
+			</div> <!-- Fin Tab panes -->
+		</div>
+		<!-- Fin Objetos jQuery -->
+
+		<div class="row mt-3">
+			<div id="result" class=" p-1"></div>
+		</div>
+	</section>
+
+	<!-- Lotería -->
+	<div id="loto" style="display: none">
+		<div class="jumbotron jumbotron-fluid d-flex">
+			<div
+				class="text-dark container d-flex flex-column justify-content-center align-items-sm-stretch align-items-md-center">
+				<h1>Adivina el gordo de Navidad</h1>
+				<button type="button" id="b-start" class="btn btn-primary">Comenar</button>
+				<div class="p-3" style="display: none" id="output">Resultado</div>
+				<div id="game" class="container" style="display:none">
+					<div id="ciphers" class="row justify-content-center m-3">
+						<div class="col-1 m-2"><input type="number" id="num1" min="0" max="9" value="0"></div>
+						<div class="col-1 m-2"><input type="number" id="num2" min="0" max="9" value="0"></div>
+						<div class="col-1 m-2"><input type="number" id="num3" min="0" max="9" value="0"></div>
+						<div class="col-1 m-2"><input type="number" id="num4" min="0" max="9" value="0"></div>
+						<div class="col-1 m-2"><input type="number" id="num5" min="0" max="9" value="0"></div>
+					</div>
+					<div class="row justify-content-center m-3">
+						<button id="b-guess" type="button" class="btn btn-primary">Adivinar</button>
+					</div>
+					<p>Reglas</p>
+					<ul>
+						<li>Color rojo, el valor está por debajo del número.</li>
+						<li>Color azul, el valor está por encima del número.</li>
+						<li>Color verde, el valor es el correcto.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin lotería -->
+
+	<!-- Buscador -->
+	<div id="search" style="display: none">
+		<div class="jumbotron jumbotron-fluid d-flex">
+			<div
+				class="text-dark container justify-content-center">
+				<h2>Máximos anotadores NBA</h2>
+				<div class="row justify-content-end">
+					<input id="b-search" type="text" placeholder="Buscar">
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Jugador</th>
+							<th>Equipo</th>
+							<th>Posición</th>
+							<th>Media</th>
+						</tr>
+					</thead>
+					<tbody id="players">
+						<tr>
+							<td>Donovan Mitchell</td>
+							<td>UTAH</td>
+							<td>Escolta</td>
+							<td>33.85</td>
+						</tr>
+						<tr>
+							<td>Luka Doncic</td>
+							<td>Dallas</td>
+							<td>Base</td>
+							<td>26.98</td>
+						</tr>
+						<tr>
+							<td>James Harden</td>
+							<td>Houston</td>
+							<td>Alero</td>
+							<td>26.76</td>
+						</tr>
+						<tr>
+							<td>Joel Embiid</td>
+							<td>Philadelphia</td>
+							<td>Pivot</td>
+							<td>25.72</td>
+						</tr>
+						<tr>
+							<td>Kawhi Leonard</td>
+							<td>Clippers</td>
+							<td>Alero</td>
+							<td>25.70</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- Fin Buscador -->
+
+	<!-- CATEGORIES -->
+	<div id="categories" data-type="list" data-code="14" class="container cat-list">
+		<div class="row">
+			<div class="col-lg-3 col-md-6"><a href="#">
+					<div class="cat-list-image"><img alt="Categoría cámaras" src="img/catcamara.jpg" />
+					</div>
+					<div class="cat-list-text">
+						<h3>Cámaras</h3>
+						<div>Digitales y reflex</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6"><a href="#">
+					<div class="cat-list-image"><img alt="Categoría móviles" src="img/catmovi.jpg" />
+					</div>
+					<div class="cat-list-text">
+						<h3>Móviles</h3>
+						<div>Modelos exclusivos</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6"><a href="#">
+					<div class="cat-list-image"><img alt="Categoría portátiles" src="img/catpportatil.jpg" />
+					</div>
+					<div class="cat-list-text">
+						<h3>Portátiles</h3>
+						<div>Intel y AMD</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-6"><a href="#">
+					<div class="cat-list-image"><img alt="Categoría Tablets" src="img/cattablet.jpg" />
+					</div>
+					<div class="cat-list-text">
+						<h3>Tablets</h3>
+						<div>Android y iPad</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<main>
+	</main>
+
+	<footer class="bg-dark text-white" id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-info">
+							<h3>Mi Tienda</h3>
+							<p>
+								Dirección <br>
+								Ciudad, CP 00000<br><br>
+								<strong>Phone:</strong> +34 666 666 666<br>
+								<strong>Email:</strong> info@example.com<br>
+							</p>
+							<div class="social-links mt-3">
+								<a href="#"><i class='fab fa-twitter'></i></i></a>
+								<a href="#"><i class='fab fa-facebook-f'></i></i></a>
+								<a href="#"><i class='fab fa-instagram'></i></a>
+								<a href="#"><i class='fab fa-google-plus-g'></i></a>
+								<a href="#"><i class='fab fa-linkedin-in'></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6 footer-links">
+						<h4>Enlaces de interés</h4>
+						<ul>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Inicio</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Sobre nosotros</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicios</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Términos de servicio</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Política de privacidad</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-2 col-md-6 footer-links">
+						<h4>Servicios</h4>
+						<ul>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicio 1</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicio 2</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicio 3</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicio 4</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i> Servicio 5</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-4 col-md-6 footer-newsletter">
+						<h4>Nuestra Newsletter</h4>
+						<p>Suscribete a nuestro servicio de newsletter para manternete al día de nuestras novedades.</p>
+						<form action="" method="post">
+							<input type="email" name="email"><input type="submit" value="Suscribete">
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="copyright">
+				© Copyright <strong><span>Mi Tienda</span></strong>.
+			</div>
+			<div class="credits">
+			</div>
+		</div>
+	</footer>
+
+	<a id="toparrow" href="#"><i class="fas fa-arrow-circle-up"></i></a>
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+	crossorigin="anonymous"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/util.js"></script>
+	<script src="./js/result.js"></script>
+
+	<script src="./js/mitienda/mitienda.js" type="module"></script>
+	<script src="./js/examples/examples.js" type="module"></script>
+
+</body>
+
+</html>
